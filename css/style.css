@@ -53,6 +53,7 @@ body {
     margin-left: 10px;
     color: black;
     background-color: white;
+    transition: 00.7s;
 }
 
 .add:hover {
