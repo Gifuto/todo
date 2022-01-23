@@ -36,14 +36,8 @@ body {
     line-height: 50px;
 }
 
-.checkbox {
-    display: flex;
-}
-
 .task {
-    display: flex;
-    margin-left: 30px;
-    margin-top: -34px;
+    margin-left: 10px;
 }
 
 .add {

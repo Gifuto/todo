@@ -15,8 +15,10 @@ function addTask() {
     if (createTask() != null) {
         const newTask = createTask(field.value);
         const newCheckBox = createChecBox();
+        const newBr = createBr()
         list.appendChild(newCheckBox)
         list.appendChild(newTask);
+        list.appendChild(newBr);
         field.value = '';
     }     
 }
@@ -26,6 +28,11 @@ function createChecBox(value) {
     checkBox.setAttribute("type", "checkbox");
     checkBox.classList.add('checkbox');
     return checkBox;
+}
+
+function createBr() {
+    const br = document.createElement('br');
+    return br;
 }
 
 btn.addEventListener("click", addTask);
