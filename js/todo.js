@@ -1,17 +1,18 @@
 const field = document.querySelector('.field');
 const list = document.querySelector('.list');
 const btn = document.querySelector('.add');
-const check = document.querySelector('.task')
 
 function createTask(value) {
-    const task = document.createElement('div');
-    task.textContent = value;
-    task.classList.add('task');
-    return task;
+    if (field.value != '') {
+        const task = document.createElement('label');
+        task.textContent = value;
+        task.classList.add('task');
+        return task;
+    } 
 }
 
 function addTask() {
-    if (field.value != null) {
+    if (createTask() != null) {
         const newTask = createTask(field.value);
         const newCheckBox = createChecBox();
         list.appendChild(newCheckBox)
@@ -27,4 +28,4 @@ function createChecBox(value) {
     return checkBox;
 }
 
-btn.addEventListener('click', addTask);
+btn.addEventListener("click", addTask);
