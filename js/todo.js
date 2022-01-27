@@ -1,38 +1,27 @@
-const field = document.querySelector('.field');
-const list = document.querySelector('.list');
-const btn = document.querySelector('.add');
+const field = document.querySelector('.field')
+const list = document.querySelector('.list')
+const add = document.querySelector('.add')
 
 function createTask(value) {
-    if (field.value != '') {
-        const task = document.createElement('label');
-        task.textContent = value;
-        task.classList.add('task');
-        return task;
-    } 
+    const task = document.createElement('li')
+    task.textContent = value
+    task.className = 'task'
+    return task
+}
+
+function completeTask() {
+    const complete = document.querySelector('.task')
+    complete.className = 'complete'
+    return complete
 }
 
 function addTask() {
-    if (createTask() != null) {
-        const newTask = createTask(field.value);
-        const newCheckBox = createChecBox();
-        const newBr = createBr()
-        list.appendChild(newCheckBox)
-        list.appendChild(newTask);
-        list.appendChild(newBr);
-        field.value = '';
-    }     
+    if (field.value != '') {
+        const newTask = createTask(field.value)
+        list.appendChild(newTask)
+        newTask.addEventListener('click', completeTask)
+        field.value = ''
+    }
 }
 
-function createChecBox(value) {
-    const checkBox = document.createElement("INPUT");
-    checkBox.setAttribute("type", "checkbox");
-    checkBox.classList.add('checkbox');
-    return checkBox;
-}
-
-function createBr() {
-    const br = document.createElement('br');
-    return br;
-}
-
-btn.addEventListener("click", addTask);
+add.addEventListener('click', addTask)
