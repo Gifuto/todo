@@ -5,11 +5,24 @@ const add = document.querySelector('.add')
 function createTask(value) {
     const task = document.createElement('li')
     task.className = 'task'
-    task.textContent = value
+
+    const taskText = document.createElement('span')
+    taskText.className = 'task-text'
+    taskText.textContent = value
+    
+    const deleteButton = document.createElement("button")
+    deleteButton.textContent = 'x'
+    deleteButton.className = 'delete-btn'
+    deleteButton.onclick = function() {
+        task.remove()
+    }
+
+    task.appendChild(taskText);
+    task.appendChild(deleteButton);
     return task
 }
 
-function completeTask() {
+function toggleTaskCompletion() {
     const complete = document.querySelector('.task')
     this.classList.toggle('complete')
     return complete
@@ -19,8 +32,9 @@ function addTask() {
     if (field.value != '') {
         const newTask = createTask(field.value)
         list.appendChild(newTask)
-        if (document.querySelector('li').className != 'complete') {
-            newTask.addEventListener('click', completeTask)
+        
+        if (list.querySelector('.task').className != 'complete') {
+            newTask.addEventListener('click', toggleTaskCompletion)
         }
         field.value = ''
     }

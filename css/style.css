@@ -15,10 +15,6 @@ body {
     transition: 0.7s;
 }
 
-.control:hover {
-    border-radius: 10px;
-}
-
 .field {
     text-align: start;
     padding: 10px;
@@ -47,11 +43,12 @@ body {
 }
 
 .task {
-    margin-right: 15px;
-    margin-left: 15px;
+    display: flex;
+    width: 200px;
     list-style-type: none;
     padding: 0;
     cursor: pointer;
+    justify-content: space-around;
 }
 
 .task + .task {
@@ -63,4 +60,26 @@ body {
     text-decoration: line-through;
     transition: 0.7s;
     list-style-type: none;
+}
+
+.task-text {
+    margin-left: 10px;
+    width: 150px;
+    word-wrap: break-word;
+}
+
+.delete-btn {
+    margin-left: 10px;
+    padding: 0 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    transition: 0.7s;
 }
